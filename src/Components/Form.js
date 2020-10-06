@@ -1,29 +1,24 @@
 import React, { useState } from "react";
 // import axios from "axios";
 
-// Modal
-import ReactModal from "react-modal";
-import { useModal } from "react-modal-hook";
-
 const Form = () => {
   // States
 
   // Permet le stockage de l'input de recherche
   const [input, setInput] = useState("");
 
-  // Modal
-  const [showModal, hideModal] = useModal(() => (
-    <ReactModal isOpen>
-      <p>Modal content</p>
-      <button onClick={hideModal}>Hide modal</button>
-    </ReactModal>
-  ));
+  // Permet d'afficher ou non la modal
+  const [showModal, setShowModal] = useState(false);
+
+  const modalDisplay = () => {
+    setShowModal(true);
+  };
 
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       <section className="form-container">
         <form className="form">
-          <div className="input-container" onClick={showModal}>
+          <div className="input-container" onClick={modalDisplay}>
             <span>
               <p>Départ</p>
             </span>
@@ -50,6 +45,7 @@ const Form = () => {
           </div>
         </form>
       </section>
+      <section className={showModal ? "modal" : "modal-hidden"}></section>
     </div>
   );
 };
