@@ -1,37 +1,75 @@
 import React, { useState } from "react";
-// import axios from "axios";
+
+// Composants
+import ModalDepart from "./ModalDepart";
+import ModalArrive from "./ModalArrive";
+
+// Logo
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+library.add(faTimes);
 
 const Form = () => {
-  // States
+  //------------ States
 
   // Permet le stockage de l'input de recherche
-  const [input, setInput] = useState("");
+  const [departInput, setDepartInput] = useState("");
+  const [arriveInput, setArriveInput] = useState("");
 
   // Permet d'afficher ou non la modal
-  const [showModal, setShowModal] = useState(false);
+  const [showModalDepart, setShowModalDepart] = useState(false);
+  const [showModalArrive, setShowModalArrive] = useState(false);
 
-  const modalDisplay = () => {
-    setShowModal(true);
+  // Fonctions pour la modal Depart (faire apparaitre/disparaitre)
+  const modalDisplayDepart = () => {
+    setShowModalDepart(true);
+  };
+
+  const modalHideDepart = () => {
+    setShowModalDepart(false);
+  };
+
+  // Fonctions pour la modal Arrive (faire apparaitre/disparaitre)
+
+  const modalDisplayArrive = () => {
+    setShowModalArrive(true);
+  };
+
+  const modalHideArrive = () => {
+    setShowModalArrive(false);
   };
 
   return (
     <div style={{ display: "flex" }}>
       <section className="form-container">
         <form className="form">
-          <div className="input-container" onClick={modalDisplay}>
+          <div
+            className="input-container"
+            onClick={() => {
+              modalDisplayDepart();
+              modalHideArrive();
+            }}
+          >
             <span>
               <p>Départ</p>
             </span>
             <input
+              value={departInput}
               placeholder="Ville"
               type="text"
               onChange={(event) => {
-                setInput(event.target.value);
+                setDepartInput(event.target.value);
               }}
             />
           </div>
 
-          <div className="input-container">
+          <div
+            className="input-container"
+            onClick={() => {
+              modalDisplayArrive();
+              modalHideDepart();
+            }}
+          >
             <span>
               <p>Arrivée</p>
             </span>
@@ -39,13 +77,29 @@ const Form = () => {
               placeholder="Ville"
               type="text"
               onChange={(event) => {
-                setInput(event.target.value);
+                setArriveInput(event.target.value);
               }}
             />
           </div>
         </form>
       </section>
-      <section className={showModal ? "modal" : "modal-hidden"}></section>
+      <section className={showModalDepart ? "modal" : "modal-hidden"}>
+        <ModalDepart
+          setShowModalDepart={setShowModalDepart}
+          setShowModalArrive={setShowModalArrive}
+          modalHideDepart={modalHideDepart}
+          departInput={departInput}
+          setDepartInput={setDepartInput}
+        />
+      </section>
+      <section className={showModalArrive ? "modal" : "modal-hidden"}>
+        <ModalArrive
+          setShowModalArrive={setShowModalArrive}
+          setShowModalDepart={setShowModalDepart}
+          modalHideArrive={modalHideArrive}
+          departInput={departInput}
+        />
+      </section>
     </div>
   );
 };

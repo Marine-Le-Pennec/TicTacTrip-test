@@ -7,6 +7,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.hidden {
+  display: none;
+}
 /* Mise en forme du Header */
 
 .header-container {
@@ -25,7 +29,7 @@
 }
 
 .header-container h1 {
-  font-family: hkgrotesk, Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 2em;
   text-align: center;
 }
@@ -34,7 +38,7 @@
 
 .form-container {
   border: #dddddd solid 1px;
-  height: 35em;
+  height: 30em;
   width: 25em;
   border-radius: 0.7em;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -51,7 +55,7 @@
 }
 
 .form input {
-  font-family: hkgrotesk, Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   width: 70%;
   height: 80px;
   margin-bottom: 5%;
@@ -85,8 +89,10 @@ input::placeholder {
   align-items: center;
   padding: 5px;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
+/* Mise en page de la modal */
 .modal {
   border: #dddddd solid 1px;
   height: 25em;
@@ -97,8 +103,27 @@ input::placeholder {
   margin-top: 10%;
   margin-left: 5%;
   padding: 2em;
+  position: relative;
 }
 
 .modal-hidden {
   display: none;
+}
+
+.modal-close-button {
+  position: relative;
+  left: 96%;
+  top: 0;
+  background-color: transparent;
+  border-style: none;
+}
+
+.popular {
+  font-family: "Roboto", sans-serif;
+}
+
+.popular h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #20e5ab;
 }
