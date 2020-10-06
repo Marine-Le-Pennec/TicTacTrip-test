@@ -3,13 +3,16 @@ import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ModalArrive = ({ modalHideArrive, departInput }) => {
+const ModalArrive = ({ modalHideArrive, departInput, arriveInput }) => {
   // Passer departInput entièrement en lowercase
   const departInputLower = departInput.toLowerCase();
 
   // --------State
-  const [popularCity, setPopularCity] = useState();
+  // Chargement
   const [isLoading, setIsLoading] = useState(true);
+
+  const [popularCity, setPopularCity] = useState([]);
+  const [search, setSearch] = useState([]);
 
   //   Récupération des données des 5 villes les plus populaires au départ d'une ville
   //   Si il n'y a aucune recherche effectué dans l'input "Départ", la modal affiche par défaut les villes les plus populaires au départ de Paris
@@ -32,6 +35,18 @@ const ModalArrive = ({ modalHideArrive, departInput }) => {
     fetchData();
   }, [departInputLower]);
 
+  //   Récupération des données selon ce que rentre l'utilisateur
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        `https://api.comparatrip.eu/cities/autocomplete/?q=${arriveInput}`
+      );
+      setSearch(response.data);
+      setIsLoading(false);
+    };
+    fetchData();
+  }, [arriveInput]);
+
   return isLoading ? (
     <div>Chargement...</div>
   ) : (
@@ -42,10 +57,14 @@ const ModalArrive = ({ modalHideArrive, departInput }) => {
         </button>
 
         {/* Effectuer une recherche par mot clefs */}
-        <div></div>
+        <section className={arriveInput === "" && "hidden"}>
+          {search.map((city, index) => {
+            return <div>{city.local_name}</div>;
+          })}
+        </section>
 
         {/* Si le champ est vide, afficher les 5 villes les plus populaires */}
-        <div className={departInput === "" ? "popular" : "hidden"}>
+        <div className={arriveInput === "" ? "popular" : "hidden"}>
           <h2>Populaires</h2>
 
           {popularCity.map((city, index) => {

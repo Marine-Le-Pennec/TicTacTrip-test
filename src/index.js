@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { ModalProvider } from "react-modal-hook";
+import "./index.css";
 import App from "./App";
 
 // Fonts
 import "./Assets/fonts/hkgrotesk-regular.ttf";
 
 ReactDOM.render(
-  <ModalProvider>
+  <React.StrictMode>
     <App />
-  </ModalProvider>,
+  </React.StrictMode>,
   document.getElementById("root")
 );

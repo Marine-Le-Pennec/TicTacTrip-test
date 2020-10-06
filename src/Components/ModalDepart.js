@@ -4,16 +4,13 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ModalDepart = ({ modalHideDepart, departInput }) => {
-  // departInput en majuscules
-  const departInputUpper = departInput.toUpperCase();
-
   // -----States
   // Chargement
   const [isLoading, setIsLoading] = useState(true);
   // Stockage 5 villes les plus populaires
-  const [mostPopularCity, setMostPopularCity] = useState();
+  const [mostPopularCity, setMostPopularCity] = useState([]);
   // Recherche par input
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState([]);
 
   //   Récupération des données des 5 villes les plus populaires
   useEffect(() => {
@@ -31,15 +28,13 @@ const ModalDepart = ({ modalHideDepart, departInput }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://api.comparatrip.eu/cities/autocomplete/?q=Phttps://api.comparatrip.eu/cities/autocomplete/?q=${departInputUpper}`
+        `https://api.comparatrip.eu/cities/autocomplete/?q=${departInput}`
       );
       setSearch(response.data);
       setIsLoading(false);
     };
     fetchData();
-  }, [departInputUpper]);
-
-  // Affichage correct de la nationalité de la ville
+  }, [departInput]);
 
   return isLoading ? (
     <div>En cours de chargement</div>
@@ -50,10 +45,14 @@ const ModalDepart = ({ modalHideDepart, departInput }) => {
       </button>
 
       {/* Effectuer une recherche par mot clefs */}
-      <div></div>
+      <section className={departInput === "" && "hidden"}>
+        {search.map((city, index) => {
+          return <div>{city.local_name}</div>;
+        })}
+      </section>
 
       {/* Si le champ est vide, afficher les 5 villes les plus populaires */}
-      <div className={departInput === "" ? "popular" : "hidden"}>
+      <section className={departInput === "" ? "popular" : "hidden"}>
         <h2>Populaires</h2>
 
         {mostPopularCity.map((city, index) => {
@@ -71,7 +70,7 @@ const ModalDepart = ({ modalHideDepart, departInput }) => {
             </div>
           );
         })}
-      </div>
+      </section>
     </div>
   );
 };

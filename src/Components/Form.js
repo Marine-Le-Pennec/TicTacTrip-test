@@ -59,7 +59,7 @@ const Form = () => {
             </span>
             <input
               value={departInput}
-              placeholder="Ville"
+              placeholder="Ville ou aéroports"
               type="text"
               onChange={(event) => {
                 setDepartInput(event.target.value);
@@ -78,7 +78,7 @@ const Form = () => {
               <p>Arrivée</p>
             </span>
             <input
-              placeholder="Ville"
+              placeholder="Ville ou aéroports"
               type="text"
               onChange={(event) => {
                 setArriveInput(event.target.value);
@@ -89,18 +89,14 @@ const Form = () => {
       </section>
       <section className={showModalDepart ? "modal" : "modal-hidden"}>
         <ModalDepart
-          setShowModalDepart={setShowModalDepart}
-          setShowModalArrive={setShowModalArrive}
           modalHideDepart={modalHideDepart}
           departInput={departInput}
-          setDepartInput={setDepartInput}
         />
       </section>
       <section className={showModalArrive ? "modal" : "modal-hidden"}>
         <ModalArrive
-          setShowModalArrive={setShowModalArrive}
-          setShowModalDepart={setShowModalDepart}
           modalHideArrive={modalHideArrive}
+          arriveInput={arriveInput}
           departInput={departInput}
         />
       </section>
