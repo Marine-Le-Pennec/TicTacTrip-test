@@ -2,37 +2,87 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Mise en forme du Header */
+
+.header-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #dcf7dc;
+  margin-top: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-container img {
+  width: 10em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-container h1 {
+  font-family: hkgrotesk, Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+/* Mise en forme du Form */
+
+.form-container {
+  border: #dddddd solid 1px;
+  height: 35em;
+  width: 25em;
+  border-radius: 0.7em;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  margin-top: 10%;
+  padding: 2em;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.form input {
+  font-family: hkgrotesk, Arial, Helvetica, sans-serif;
+  width: 70%;
+  height: 80px;
+  margin-bottom: 5%;
+  background-color: #e7ebeb;
+  border-style: none;
+  border-radius: 0 10px 10px 0;
+  padding: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input::placeholder {
+  font-size: 0.6em;
+  display: flex;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+}
+
+.input-container span {
+  width: 20%;
+  height: 80px;
+  font-size: 1em;
+  background-color: #e7ebeb;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
 }
