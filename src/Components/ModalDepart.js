@@ -47,7 +47,19 @@ const ModalDepart = ({ modalHideDepart, departInput }) => {
       {/* Effectuer une recherche par mot clefs */}
       <section className={departInput === "" && "hidden"}>
         {search.map((city, index) => {
-          return <div>{city.local_name}</div>;
+          const cityID = city.gpuid.substring(2, 4);
+          return (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+              }}
+            >
+              <p style={{ flex: 1 }}>{city.unique_name.toUpperCase()}</p>
+              <span style={{ flex: 1 }}>{cityID}</span>
+            </div>
+          );
         })}
       </section>
 

@@ -43,7 +43,8 @@
   border-radius: 0.7em;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  margin-top: 10%;
+  margin-top: 5%;
+  /* margin-bottom: 10%; */
   padding: 2em;
 }
 
@@ -93,15 +94,19 @@ input::placeholder {
 }
 
 /* Mise en page de la modal */
+
+.modals-container {
+  height: 30em;
+  width: 35em;
+  margin-top: 5%;
+  margin-left: 5%;
+  padding: 2em;
+}
 .modal {
   border: #dddddd solid 1px;
-  height: 25em;
-  width: 35em;
   border-radius: 0.7em;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  margin-top: 10%;
-  margin-left: 5%;
   padding: 2em;
   position: relative;
 }

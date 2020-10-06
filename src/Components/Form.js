@@ -87,19 +87,21 @@ const Form = () => {
           </div>
         </form>
       </section>
-      <section className={showModalDepart ? "modal" : "modal-hidden"}>
-        <ModalDepart
-          modalHideDepart={modalHideDepart}
-          departInput={departInput}
-        />
-      </section>
-      <section className={showModalArrive ? "modal" : "modal-hidden"}>
-        <ModalArrive
-          modalHideArrive={modalHideArrive}
-          arriveInput={arriveInput}
-          departInput={departInput}
-        />
-      </section>
+      <div className="modals-container">
+        <section className={showModalDepart ? "modal" : "modal-hidden"}>
+          <ModalDepart
+            modalHideDepart={modalHideDepart}
+            departInput={departInput}
+          />
+        </section>
+        <section className={showModalArrive ? "modal" : "modal-hidden"}>
+          <ModalArrive
+            modalHideArrive={modalHideArrive}
+            arriveInput={arriveInput}
+            departInput={departInput}
+          />
+        </section>
+      </div>
     </div>
   );
 };
