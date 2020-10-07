@@ -44,17 +44,40 @@ const Form = () => {
   };
 
   // Date Picker
-  const Calendar = () => {
-    const [startDate, setStartDate] = useState(new Date());
+  // ---- Activer l'apparition du date picker pour le retour
+  const [pickerHidden, setPickerHidden] = useState(true);
 
+  // ---- Fonction affichage datepicker Aller
+
+  const [startDate, setStartDate] = useState(new Date());
+
+  const Start = () => {
     return (
       <DatePicker
+        required
+        className="datePicker"
         selected={startDate}
         onChange={(date) => setStartDate(date)}
         dateFormat="dd/MM/yyyy"
+        showTimeSelect={true}
       />
     );
   };
+
+  // ---- Fonction affichage datepicker Retour
+  const [endDate, setEndDate] = useState(new Date());
+  const End = () => {
+    return (
+      <DatePicker
+        className="datePicker"
+        selected={endDate}
+        onChange={(date) => setEndDate(date)}
+        dateFormat="dd/MM/yyyy"
+        showTimeSelect={true}
+      />
+    );
+  };
+
   return (
     <div className="form-and-modal">
       <section className="form-container">
@@ -136,11 +159,44 @@ const Form = () => {
               }}
             />
           </div>
+          {/* Intégration du calendrier */}
+          <section className="calendar-container">
+            <div className="date-container">
+              <p className="datePicker-depart">Départ</p>
+              <div style={{ fontSize: "20px" }}>{Start()}</div>
+            </div>
+
+            <div className="border"> </div>
+            {/* div masquante */}
+            <p
+              className={!pickerHidden && endDate !== null ? "hidden" : ""}
+              onClick={() => {
+                setPickerHidden(!pickerHidden);
+              }}
+            >
+              + Ajouter Retour
+            </p>
+            {/* picker */}
+            <div className={pickerHidden ? "hidden" : ""}>
+              <div className="date-container">
+                <p className="datePicker-depart">Retour</p>
+                <div>{End()}</div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPickerHidden(true);
+                    setEndDate(null);
+                  }}
+                >
+                  x
+                </button>
+              </div>
+            </div>
+          </section>
+          <button type="submit">Rechercher</button>
         </form>
       </section>
       <div className="modals-container">
-        {/* <section className={!showModalDepart ? "tiny-logo" : "hidden"}> */}
-
         <section className={showModalDepart ? "modal" : "modal-hidden"}>
           <ModalDepart
             modalHideDepart={modalHideDepart}
