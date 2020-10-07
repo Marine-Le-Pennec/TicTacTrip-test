@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import ModalDepart from "./ModalDepart";
 import ModalArrive from "./ModalArrive";
 
-// Logo
+// Icones
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 library.add(faTimes);
@@ -44,9 +44,28 @@ const Form = () => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="form-and-modal">
       <section className="form-container">
         <form className="form">
+          {/* Visuel mobile */}
+          <div
+            className="input-container-mobile"
+            onClick={() => {
+              modalDisplayDepart();
+              modalHideArrive();
+            }}
+          >
+            <h3>Départ</h3>
+            <input
+              value={departInput}
+              placeholder="Ville ou aéroports"
+              type="text"
+              onChange={(event) => {
+                setDepartInput(event.target.value);
+              }}
+            />
+          </div>
+          {/* Fin visuel mobile */}
           <div
             className="input-container"
             onClick={() => {
@@ -67,6 +86,25 @@ const Form = () => {
             />
           </div>
 
+          {/* Visuel mobile */}
+          <div
+            className="input-container-mobile"
+            onClick={() => {
+              modalDisplayArrive();
+              modalHideDepart();
+            }}
+          >
+            <h3>Arrivée</h3>
+            <input
+              value={departInput}
+              placeholder="Ville ou aéroports"
+              type="text"
+              onChange={(event) => {
+                setDepartInput(event.target.value);
+              }}
+            />
+          </div>
+          {/* Fin visuel mobile */}
           <div
             className="input-container"
             onClick={() => {
@@ -78,6 +116,7 @@ const Form = () => {
               <p>Arrivée</p>
             </span>
             <input
+              value={arriveInput}
               placeholder="Ville ou aéroports"
               type="text"
               onChange={(event) => {
@@ -88,10 +127,13 @@ const Form = () => {
         </form>
       </section>
       <div className="modals-container">
+        {/* <section className={!showModalDepart ? "tiny-logo" : "hidden"}> */}
+
         <section className={showModalDepart ? "modal" : "modal-hidden"}>
           <ModalDepart
             modalHideDepart={modalHideDepart}
             departInput={departInput}
+            setDepartInput={setDepartInput}
           />
         </section>
         <section className={showModalArrive ? "modal" : "modal-hidden"}>
@@ -99,6 +141,7 @@ const Form = () => {
             modalHideArrive={modalHideArrive}
             arriveInput={arriveInput}
             departInput={departInput}
+            setArriveInput={setArriveInput}
           />
         </section>
       </div>

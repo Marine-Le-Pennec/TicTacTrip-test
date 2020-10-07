@@ -9,7 +9,7 @@ const Header = () => {
       <img src={logo} alt="tictactrip" />
       <h1>
         Trouvez la destination idéale avec{" "}
-        <span style={{ color: "#20E5AB" }}>Tictactrip</span>!
+        <span style={{ color: "#20E5AB" }}>Tictactrip</span> !
       </h1>
     </div>
   );

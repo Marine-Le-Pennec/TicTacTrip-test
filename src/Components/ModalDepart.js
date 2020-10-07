@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ModalDepart = ({ modalHideDepart, departInput }) => {
+const ModalDepart = ({ modalHideDepart, departInput, setDepartInput }) => {
   // -----States
   // Chargement
   const [isLoading, setIsLoading] = useState(true);
@@ -43,17 +43,16 @@ const ModalDepart = ({ modalHideDepart, departInput }) => {
       <button className="modal-close-button" onClick={modalHideDepart}>
         <FontAwesomeIcon icon="times" size="2x" />
       </button>
-
+      <h3>Départ</h3>
       {/* Effectuer une recherche par mot clefs */}
       <section className={departInput === "" && "hidden"}>
         {search.map((city, index) => {
           const cityID = city.gpuid.substring(2, 4);
           return (
             <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "baseline",
+              className="search-line"
+              onClick={() => {
+                setDepartInput(city.unique_name);
               }}
             >
               <p style={{ flex: 1 }}>{city.unique_name.toUpperCase()}</p>
@@ -71,10 +70,9 @@ const ModalDepart = ({ modalHideDepart, departInput }) => {
           const cityID = city.gpuid.substring(2, 4);
           return (
             <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "baseline",
+              className="search-line"
+              onClick={() => {
+                setDepartInput(city.unique_name);
               }}
             >
               <p style={{ flex: 1 }}>{city.unique_name.toUpperCase()}</p>

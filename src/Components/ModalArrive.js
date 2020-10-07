@@ -3,7 +3,12 @@ import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ModalArrive = ({ modalHideArrive, departInput, arriveInput }) => {
+const ModalArrive = ({
+  modalHideArrive,
+  departInput,
+  arriveInput,
+  setArriveInput,
+}) => {
   // Passer departInput entièrement en lowercase
   const departInputLower = departInput.toLowerCase();
 
@@ -55,6 +60,7 @@ const ModalArrive = ({ modalHideArrive, departInput, arriveInput }) => {
         <button className="modal-close-button" onClick={modalHideArrive}>
           <FontAwesomeIcon icon="times" size="2x" />
         </button>
+        <h3>Arrivée</h3>
 
         {/* Effectuer une recherche par mot clefs */}
         <section className={arriveInput === "" && "hidden"}>
@@ -62,10 +68,9 @@ const ModalArrive = ({ modalHideArrive, departInput, arriveInput }) => {
             const cityID = city.gpuid.substring(2, 4);
             return (
               <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "baseline",
+                className="search-line"
+                onClick={() => {
+                  setArriveInput(city.unique_name);
                 }}
               >
                 <p style={{ flex: 1 }}>{city.unique_name.toUpperCase()}</p>
@@ -83,10 +88,9 @@ const ModalArrive = ({ modalHideArrive, departInput, arriveInput }) => {
             const cityID = city.gpuid.substring(2, 4);
             return (
               <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "baseline",
+                className="search-line"
+                onClick={() => {
+                  setArriveInput(city.unique_name);
                 }}
               >
                 <p style={{ flex: 1 }}>{city.unique_name.toUpperCase()}</p>
