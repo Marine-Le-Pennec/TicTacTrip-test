@@ -43,6 +43,18 @@ const Form = () => {
     setShowModalArrive(false);
   };
 
+  // Date Picker
+  const Calendar = () => {
+    const [startDate, setStartDate] = useState(new Date());
+
+    return (
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        dateFormat="dd/MM/yyyy"
+      />
+    );
+  };
   return (
     <div className="form-and-modal">
       <section className="form-container">
