@@ -41,6 +41,7 @@ const ModalDepart = ({
     fetchData();
   }, [departInput]);
 
+  // --------------------------------------------------
   return isLoading ? (
     <div>En cours de chargement</div>
   ) : (

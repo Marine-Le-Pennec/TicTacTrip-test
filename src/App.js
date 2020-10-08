@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-// Imports composants
+// Imports composants principaux
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Form from "./Components/Form";

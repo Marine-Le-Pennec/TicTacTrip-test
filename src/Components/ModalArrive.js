@@ -53,8 +53,9 @@ const ModalArrive = ({
     fetchData();
   }, [arriveInput]);
 
+  // --------------------------------------------------
   return isLoading ? (
-    <div>Chargement...</div>
+    <div>En cours de chargement...</div>
   ) : (
     <div style={{ width: "100%" }}>
       <div>
