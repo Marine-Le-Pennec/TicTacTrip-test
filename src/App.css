@@ -1,6 +1,7 @@
 .App {
   width: 100%;
-  overflow: hidden;
+  height: 100vh;
+  /* overflow: hidden; */
   margin: 0 auto;
 }
 
@@ -70,7 +71,6 @@
   border-style: none;
   border-radius: 0 10px 10px 0;
   padding: 5px;
-  text-align: center;
   box-sizing: border-box;
   font-size: 30px;
 }
@@ -189,9 +189,12 @@ input::placeholder {
   height: 1px;
   border-bottom: #b5e0d3 1px solid;
 }
+
+.datePicker {
+  background-color: transparent;
+}
 /* Responsive */
 
-/* @media only screen and (max-width: 817px) { */
 @media only screen and (max-width: 1004px) {
   .modals-container {
     display: none;
@@ -215,70 +218,50 @@ input::placeholder {
     background-color: transparent;
     border-style: none;
   }
-  /* .search-line {
-    width: 290%;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-left: 2%;
-  } */
+
   .form-container {
     width: 100%;
   }
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 360px) {
   .app-container {
-    width: 100vw;
     display: flex;
-    justify-content: center;
+    padding-right: 8%;
+    padding-left: 5%;
     align-items: center;
-    background: transparent;
-    padding-right: 20%;
+    margin-top: 2%;
   }
-
-  .form-container {
+  .modal-responsive {
+    display: flex;
+    width: 90vw;
+    height: 100vh;
     border: #dddddd solid 1px;
-    height: 60%;
-    width: 60%;
     border-radius: 0.7em;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    margin-top: 5%;
     padding: 2em;
+    position: relative;
     background-color: white;
+    /* margin-bottom: 2%; */
+  }
+  .header-container {
+    display: none;
   }
 
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .depart-arrive-p {
+    font-size: 80%;
   }
-  .modals-container {
-    height: 30em;
-    width: 75%;
-    padding: 2em;
-    margin-left: 0;
-  }
-  .form input {
+
+  /* .form input {
     font-family: "Roboto", sans-serif;
-    width: 100%;
+    width: 70%;
     height: 80px;
     margin-bottom: 5%;
     background-color: #e7ebeb;
     border-style: none;
-    border-radius: 10px;
+    border-radius: 0 10px 10px 0;
     padding: 5px;
-    text-align: center;
     box-sizing: border-box;
-    font-size: 30px;
-  }
-  .input-container {
-    display: none;
-  }
-  .input-container-mobile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+    font-size: smaller;
+  } */
 }

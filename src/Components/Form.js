@@ -11,6 +11,7 @@ import ModalArrive from "./ModalArrive";
 import DepartChoice from "../Components/Responsive/DepartChoice";
 import ArriveChoice from "../Components/Responsive/ArriveChoice";
 import ModalResponsiveDepart from "../Components/Responsive/ModalResponsiveDepart";
+import ModalResponsiveArrive from "../Components/Responsive/ModalResponsiveArrive";
 
 // Icones
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -59,8 +60,7 @@ const Form = () => {
   const Start = () => {
     return (
       <DatePicker
-        required
-        className="datePicker"
+        style={{ backgroundColor: "transparent" }}
         selected={startDate}
         onChange={(date) => setStartDate(date)}
         dateFormat="dd/MM/yyyy"
@@ -104,7 +104,7 @@ const Form = () => {
             }}
           >
             <span>
-              <p>Départ</p>
+              <p className="depart-arrive-p">Départ</p>
             </span>
             <input
               value={departInput}
@@ -144,7 +144,7 @@ const Form = () => {
             }}
           >
             <span>
-              <p>Arrivée</p>
+              <p className="depart-arrive-p">Arrivée</p>
             </span>
             <input
               value={arriveInput}
@@ -155,11 +155,22 @@ const Form = () => {
               }}
             />
           </div>
+          <section
+            className={showModalArrive ? "modal-responsive" : "modal-hidden"}
+          >
+            <ModalResponsiveArrive
+              modalHideArrive={modalHideArrive}
+              setShowModalArrive={setShowModalArrive}
+              arriveInput={arriveInput}
+              departInput={departInput}
+              setArriveInput={setArriveInput}
+            />
+          </section>
           {/* Intégration du calendrier */}
           <section className="calendar-container">
             <div className="date-container">
               <p className="datePicker-depart">Départ</p>
-              <div style={{ fontSize: "20px" }}>{Start()}</div>
+              <div>{Start()}</div>
             </div>
 
             <div className="border"> </div>

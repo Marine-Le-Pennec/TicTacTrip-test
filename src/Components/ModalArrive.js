@@ -56,7 +56,7 @@ const ModalArrive = ({
   return isLoading ? (
     <div>Chargement...</div>
   ) : (
-    <div>
+    <div style={{ width: "100%" }}>
       <div>
         <button className="modal-close-button" onClick={modalHideArrive}>
           <FontAwesomeIcon icon="times" size="2x" />
