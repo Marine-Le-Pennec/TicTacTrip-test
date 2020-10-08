@@ -177,7 +177,7 @@ input::placeholder {
 .react-datepicker__input-container {
   height: 80%;
   width: 80%;
-  padding-top: 2%;
+  padding-top: 7%;
 }
 
 .react-datepicker__input-container input {
