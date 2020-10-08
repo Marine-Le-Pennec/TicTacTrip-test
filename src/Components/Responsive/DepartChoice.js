@@ -6,6 +6,7 @@ const DepartChoice = ({
   modalDisplayDepart,
   modalHideArrive,
 }) => {
+  // --------------------------------------------------
   return (
     <div
       className="input-container-mobile"

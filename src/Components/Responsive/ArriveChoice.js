@@ -6,6 +6,7 @@ const ArriveChoice = ({
   arriveInput,
   setArriveInput,
 }) => {
+  // --------------------------------------------------
   return (
     <div
       className="input-container-mobile"

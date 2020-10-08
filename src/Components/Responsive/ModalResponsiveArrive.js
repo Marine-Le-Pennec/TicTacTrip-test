@@ -53,6 +53,8 @@ const ModalResponsiveArrive = ({
     fetchData();
   }, [arriveInput]);
 
+  // --------------------------------------------------
+
   return isLoading ? (
     <div>Chargement...</div>
   ) : (

@@ -41,6 +41,8 @@ const ModalResponsiveDepart = ({
     fetchData();
   }, [departInput]);
 
+  // --------------------------------------------------
+
   return isLoading ? (
     <div>En cours de chargement</div>
   ) : (
@@ -51,6 +53,7 @@ const ModalResponsiveDepart = ({
         </button>
       </div>
       <h3>Départ</h3>
+
       {/* Effectuer une recherche par mot clefs */}
       <section className={departInput === "" && "hidden"}>
         {search.map((city, index) => {
