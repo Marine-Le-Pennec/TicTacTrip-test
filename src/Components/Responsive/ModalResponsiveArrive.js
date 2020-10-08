@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ModalArrive = ({
+const ModalResponsiveArrive = ({
   modalHideArrive,
   setShowModalArrive,
   departInput,
@@ -58,7 +58,7 @@ const ModalArrive = ({
   ) : (
     <div style={{ width: "100%" }}>
       <div>
-        <button className="modal-close-button" onClick={modalHideArrive}>
+        <button className="modal-resp-close-button" onClick={modalHideArrive}>
           <FontAwesomeIcon icon="times" size="2x" />
         </button>
         <h3>Arrivée</h3>
@@ -106,4 +106,4 @@ const ModalArrive = ({
   );
 };
 
-export default ModalArrive;
+export default ModalResponsiveArrive;

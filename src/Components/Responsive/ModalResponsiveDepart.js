@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ModalDepart = ({
+const ModalResponsiveDepart = ({
   modalHideDepart,
   departInput,
   setDepartInput,
@@ -45,9 +45,11 @@ const ModalDepart = ({
     <div>En cours de chargement</div>
   ) : (
     <div style={{ width: "100%" }}>
-      <button className="modal-close-button" onClick={modalHideDepart}>
-        <FontAwesomeIcon icon="times" size="2x" />
-      </button>
+      <div>
+        <button className="modal-resp-close-button" onClick={modalHideDepart}>
+          <FontAwesomeIcon icon="times" size="2x" />
+        </button>
+      </div>
       <h3>Départ</h3>
       {/* Effectuer une recherche par mot clefs */}
       <section className={departInput === "" && "hidden"}>
@@ -55,13 +57,13 @@ const ModalDepart = ({
           const cityID = city.gpuid.substring(2, 4);
           return (
             <div
-              style={{ flex: 1 }}
+              className="search-line"
               onClick={() => {
                 setDepartInput(city.unique_name);
                 setShowModalDepart(false);
               }}
             >
-              <p className="city-name">{city.unique_name.toUpperCase()}</p>
+              <p style={{ flex: 1 }}>{city.unique_name.toUpperCase()}</p>
               <span style={{ flex: 1 }}>{cityID}</span>
             </div>
           );
@@ -91,4 +93,4 @@ const ModalDepart = ({
   );
 };
 
-export default ModalDepart;
+export default ModalResponsiveDepart;
