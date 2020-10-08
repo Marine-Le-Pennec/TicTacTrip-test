@@ -67,7 +67,6 @@ const Form = () => {
   const Start = () => {
     return (
       <DatePicker
-        style={{ backgroundColor: "transparent" }}
         selected={startDate}
         onChange={(date) => setStartDate(date)}
         dateFormat="dd/MM/yyyy"
@@ -204,10 +203,7 @@ const Form = () => {
                 {/* Appel de la fonction permettant d'afficher le calendrier du retour */}
                 <div>{End()}</div>
                 <button
-                  style={{
-                    borderStyle: "none",
-                    backgroundColor: "transparent",
-                  }}
+                  className="close-picker-button"
                   type="button"
                   onClick={() => {
                     setPickerHidden(true);

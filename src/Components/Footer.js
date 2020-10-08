@@ -9,8 +9,6 @@ const Footer = () => {
         xmlns="http://www.w3.org/2000/svg"
         style={{
           fill: "#20e5ab",
-          width: "248%",
-          height: 206,
           transform: "rotate(180deg) scaleX(-1)",
         }}
       >
