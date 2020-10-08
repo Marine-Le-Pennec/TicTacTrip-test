@@ -7,8 +7,12 @@ import "react-datepicker/dist/react-datepicker.css";
 // Composants
 import ModalDepart from "./ModalDepart";
 import ModalArrive from "./ModalArrive";
+// ---Responsive
+import DepartChoice from "../Components/Responsive/DepartChoice";
+import ArriveChoice from "../Components/Responsive/ArriveChoice";
 
 // Icones
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 library.add(faTimes);
@@ -83,24 +87,14 @@ const Form = () => {
       <section className="form-container">
         <form className="form">
           {/* Visuel mobile */}
-          <div
-            className="input-container-mobile"
-            onClick={() => {
-              modalDisplayDepart();
-              modalHideArrive();
-            }}
-          >
-            <h3>Départ</h3>
-            <input
-              value={departInput}
-              placeholder="Ville ou aéroports"
-              type="text"
-              onChange={(event) => {
-                setDepartInput(event.target.value);
-              }}
-            />
-          </div>
+          <DepartChoice
+            departInput={departInput}
+            setDepartInput={setDepartInput}
+            modalHideArrive={modalHideArrive}
+            modalDisplayDepart={modalDisplayDepart}
+          />
           {/* Fin visuel mobile */}
+          {/* Input de recherche pour le départ */}
           <div
             className="input-container"
             onClick={() => {
@@ -122,24 +116,15 @@ const Form = () => {
           </div>
 
           {/* Visuel mobile */}
-          <div
-            className="input-container-mobile"
-            onClick={() => {
-              modalDisplayArrive();
-              modalHideDepart();
-            }}
-          >
-            <h3>Arrivée</h3>
-            <input
-              value={departInput}
-              placeholder="Ville ou aéroports"
-              type="text"
-              onChange={(event) => {
-                setDepartInput(event.target.value);
-              }}
-            />
-          </div>
+          <ArriveChoice
+            modalDisplayArrive={modalDisplayArrive}
+            modalHideDepart={modalHideDepart}
+            arriveInput={arriveInput}
+            setArriveInput={setArriveInput}
+          />
           {/* Fin visuel mobile */}
+
+          {/* Input de recherche pour l'arrivée */}
           <div
             className="input-container"
             onClick={() => {
@@ -167,7 +152,7 @@ const Form = () => {
             </div>
 
             <div className="border"> </div>
-            {/* div masquante */}
+            {/* section masquant l'input de selection de date de retour */}
             <p
               className={!pickerHidden && endDate !== null ? "hidden" : ""}
               onClick={() => {
@@ -176,19 +161,23 @@ const Form = () => {
             >
               + Ajouter Retour
             </p>
-            {/* picker */}
+            {/* picker visible */}
             <div className={pickerHidden ? "hidden" : ""}>
               <div className="date-container">
                 <p className="datePicker-depart">Retour</p>
                 <div>{End()}</div>
                 <button
+                  style={{
+                    borderStyle: "none",
+                    backgroundColor: "transparent",
+                  }}
                   type="button"
                   onClick={() => {
                     setPickerHidden(true);
                     setEndDate(null);
                   }}
                 >
-                  x
+                  <FontAwesomeIcon icon="times" size="1x" />
                 </button>
               </div>
             </div>
@@ -196,6 +185,7 @@ const Form = () => {
           <button type="submit">Rechercher</button>
         </form>
       </section>
+      {/* Apparition des modals */}
       <div className="modals-container">
         <section className={showModalDepart ? "modal" : "modal-hidden"}>
           <ModalDepart
