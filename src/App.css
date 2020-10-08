@@ -1,16 +1,16 @@
 .App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 .app-container {
   display: flex;
-  padding-right: 10%;
+  padding-right: 5%;
+  padding-left: 5%;
   justify-content: center;
   align-items: center;
   margin-top: 2%;
-  background: center / contain no-repeat url("/src/Assets/tiny-logo.svg");
 }
 
 .hidden {
@@ -20,6 +20,11 @@
 .input-container-mobile {
   display: none;
 }
+
+.modal-responsive {
+  display: none;
+}
+
 /* Mise en forme du Header */
 
 .header-container {
@@ -46,23 +51,14 @@
 
 .form-container {
   border: #dddddd solid 1px;
-  height: 60%;
-  width: 600px;
-  margin-left: 5%;
+  /* width: 50em; */
+  flex: 1;
   border-radius: 0.7em;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  margin-top: 5%;
-  /* margin-bottom: 10%; */
   padding: 2em;
+  margin-right: 1em;
   background-color: white;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .form input {
@@ -111,9 +107,8 @@ input::placeholder {
 /* Mise en page de la modal */
 
 .modals-container {
-  width: 80%;
-  margin-top: 5%;
-  margin-left: 5%;
+  width: 50em;
+  flex: 1;
 }
 .modal {
   border: #dddddd solid 1px;
@@ -175,10 +170,8 @@ input::placeholder {
   padding: 5px;
   text-align: center;
   box-sizing: border-box;
-  font-size: 30px;
+  font-size: 20px;
 }
-/* .datePicker {
-} */
 
 .date-container {
   display: flex;
@@ -186,104 +179,51 @@ input::placeholder {
 
 .datePicker-depart {
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  padding: 5%;
+  font-size: 0.8em;
 }
 .border {
   width: 100%;
   height: 1px;
-  border-bottom: tomato 1px solid;
+  border-bottom: #b5e0d3 1px solid;
 }
 /* Responsive */
 
-@media only screen and (max-width: 1108px) {
-  .form-container {
-    border: #dddddd solid 1px;
-    height: 60%;
-    margin-right: 100px;
-    border-radius: 0.7em;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    margin-top: 5%;
-    padding: 2em;
-    background-color: white;
-  }
-
-  .form {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
+/* @media only screen and (max-width: 817px) { */
+@media only screen and (max-width: 1004px) {
   .modals-container {
-    height: 30em;
-    width: 90%;
-    margin-top: 5%;
-    margin-left: 0;
-    padding: 2em;
-  }
-
-  .form-and-modal {
-    display: flex;
-    flex-direction: column;
-  }
-}
-@media only screen and (max-width: 817px) {
-  .app-container {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    padding-right: 25%;
-    padding-left: 5%;
-  }
-  .form-container {
-    border: #dddddd solid 1px;
-    height: 60%;
-    width: auto;
-    border-radius: 0.7em;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    margin-top: 5%;
-    padding: 2em;
-    background-color: white;
-  }
-
-  .form {
-    /* max-width: 90%; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .modals-container {
-    height: 30em;
-    width: 70%;
-    padding: 2em;
-    margin-left: 0;
-  }
-  .form input {
-    font-family: "Roboto", sans-serif;
-    width: 100%;
-    height: 80px;
-    margin-bottom: 5%;
-    background-color: #e7ebeb;
-    border-style: none;
-    border-radius: 10px;
-    padding: 5px;
-    text-align: center;
-    box-sizing: border-box;
-    font-size: 30px;
-  }
-
-  .input-container {
     display: none;
   }
-  .input-container-mobile {
+
+  .modal-responsive {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 75%;
+    border: #dddddd solid 1px;
+    border-radius: 0.7em;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    padding: 2em;
+    position: relative;
+    background-color: white;
+    margin-bottom: 2%;
+  }
+
+  .modal-resp-close-button {
+    position: relative;
+    background-color: transparent;
+    border-style: none;
+  }
+  /* .search-line {
+    width: 290%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-left: 2%;
+  } */
+  .form-container {
+    width: 100%;
   }
 }
 @media only screen and (max-width: 375px) {

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ModalArrive = ({
   modalHideArrive,
+  setShowModalArrive,
   departInput,
   arriveInput,
   setArriveInput,
@@ -70,6 +71,7 @@ const ModalArrive = ({
               <div
                 className="search-line"
                 onClick={() => {
+                  setShowModalArrive(false);
                   setArriveInput(city.unique_name);
                 }}
               >

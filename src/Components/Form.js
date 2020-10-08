@@ -10,6 +10,7 @@ import ModalArrive from "./ModalArrive";
 // ---Responsive
 import DepartChoice from "../Components/Responsive/DepartChoice";
 import ArriveChoice from "../Components/Responsive/ArriveChoice";
+import ModalResponsiveDepart from "../Components/Responsive/ModalResponsiveDepart";
 
 // Icones
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -114,6 +115,16 @@ const Form = () => {
               }}
             />
           </div>
+          <section
+            className={showModalDepart ? "modal-responsive" : "modal-hidden"}
+          >
+            <ModalResponsiveDepart
+              modalHideDepart={modalHideDepart}
+              departInput={departInput}
+              setDepartInput={setDepartInput}
+              setShowModalDepart={setShowModalDepart}
+            />
+          </section>
 
           {/* Visuel mobile */}
           <ArriveChoice
@@ -182,7 +193,6 @@ const Form = () => {
               </div>
             </div>
           </section>
-          <button type="submit">Rechercher</button>
         </form>
       </section>
       {/* Apparition des modals */}
@@ -192,11 +202,13 @@ const Form = () => {
             modalHideDepart={modalHideDepart}
             departInput={departInput}
             setDepartInput={setDepartInput}
+            setShowModalDepart={setShowModalDepart}
           />
         </section>
         <section className={showModalArrive ? "modal" : "modal-hidden"}>
           <ModalArrive
             modalHideArrive={modalHideArrive}
+            setShowModalArrive={setShowModalArrive}
             arriveInput={arriveInput}
             departInput={departInput}
             setArriveInput={setArriveInput}
