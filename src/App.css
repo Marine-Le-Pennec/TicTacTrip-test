@@ -202,13 +202,14 @@ input::placeholder {
   width: 100%;
   border-bottom: #b5e0d3 3px solid;
 }
-
+.close-picker-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .close-picker-button {
   border-style: none;
   background-color: transparent;
-  width: 20%;
-  height: 50%;
-  padding-top: 12%;
 }
 /* Footer */
 footer {
@@ -250,7 +251,7 @@ footer {
     display: none;
   }
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 375px) {
   .App {
     width: 100%;
     height: 100vh;
@@ -258,6 +259,7 @@ footer {
     margin: 0 auto;
   }
   .app-container {
+    height: 70%;
     display: flex;
     padding-right: 8%;
     padding-left: 5%;
@@ -277,12 +279,11 @@ footer {
     position: relative;
     background-color: white;
   }
-  .header-container {
-    display: none;
-  }
 
   .depart-arrive-p {
     font-size: 80%;
+    padding-left: 5%;
+    padding-top: 15%;
   }
   .react-datepicker__input-container {
     height: 80%;

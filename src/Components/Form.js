@@ -202,22 +202,24 @@ const Form = () => {
                 <p className="datePicker-depart">Retour</p>
                 {/* Appel de la fonction permettant d'afficher le calendrier du retour */}
                 <div>{End()}</div>
-                <button
-                  className="close-picker-button"
-                  type="button"
-                  onClick={() => {
-                    setPickerHidden(true);
-                    setEndDate(null);
-                  }}
-                >
-                  <FontAwesomeIcon icon="times" size="1x" />
-                </button>
+                <div className="close-picker-button-container">
+                  <button
+                    className="close-picker-button"
+                    type="button"
+                    onClick={() => {
+                      setPickerHidden(true);
+                      setEndDate(null);
+                    }}
+                  >
+                    <FontAwesomeIcon icon="times" size="2x" />
+                  </button>
+                </div>
               </div>
             </div>
           </section>
         </form>
       </section>
-      {/* Apparition des modals en version web. Disparaissent lors d'un certain format en responsive*/}
+      {/* Apparition des modales en version web. Disparaissent lors d'un certain format en responsive*/}
       <div className="modals-container">
         <section className={showModalDepart ? "modal" : "modal-hidden"}>
           <ModalDepart

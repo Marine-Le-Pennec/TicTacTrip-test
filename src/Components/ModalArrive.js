@@ -21,7 +21,7 @@ const ModalArrive = ({
   const [search, setSearch] = useState([]);
 
   //   Récupération des données des 5 villes les plus populaires au départ d'une ville
-  //   Si il n'y a aucune recherche effectué dans l'input "Départ", la modal affiche par défaut les villes les plus populaires au départ de Paris
+  //   Si il n'y a aucune recherche effectuée dans l'input "Départ", la modale affiche par défaut les villes les plus populaires au départ de Paris
   useEffect(() => {
     const fetchData = async () => {
       if (departInputLower === "") {
